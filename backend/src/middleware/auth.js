@@ -1,18 +1,24 @@
 const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
-  // Get token from header (support both Authorization: Bearer and x-auth-token)
-  let token = req.header('Authorization');
-  
-  if (token && token.startsWith('Bearer ')) {
-    token = token.slice(7);
-  } else {
+  let token = null;
+
+  // 1. Check Authorization: Bearer <token>
+  const authHeader = req.header('Authorization');
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    token = authHeader.split(' ')[1];
+  }
+
+  // 2. Fallback to x-auth-token
+  if (!token) {
     token = req.header('x-auth-token');
   }
 
-  // Check if no token
+  // No token found
   if (!token) {
-    return res.status(401).json({ message: 'No token, authorization denied' });
+    return res
+      .status(401)
+      .json({ message: 'No token, authorization denied' });
   }
 
   // Verify token
@@ -25,6 +31,7 @@ const auth = (req, res, next) => {
   }
 };
 
+// admin access middleware
 const admin = (req, res, next) => {
   if (req.user && req.user.role === 'admin') {
     next();
