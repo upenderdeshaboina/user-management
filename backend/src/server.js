@@ -36,7 +36,7 @@ initDb()
     try {
       const adminEmail = process.env.ADMIN_EMAIL || 'admin@example.com';
 
-      const { rows } = await db.query('SELECT * FROM users WHERE email = $1', [adminEmail]);
+      const { rows } = await db.query('SELECT 1 FROM users WHERE role = $1 LIMIT 1',['admin']);
       console.log('Admin lookup result rows count:', rows && rows.length)
 
       if (!rows || rows.length === 0) {
