@@ -1,4 +1,4 @@
-# Purple Merit
+# User Management System
 
 A full-stack authentication and user management application built with **React** and **Express.js**, featuring JWT-based authentication, role-based access control, and a PostgreSQL database(supabase).
 
@@ -18,6 +18,9 @@ A full-stack authentication and user management application built with **React**
 - **Responsive Design**: Tailwind CSS styling for modern UI
 
 ---
+
+## Project Demo
+![Image](https://github.com/user-attachments/assets/e97b7c8b-6f8e-4098-bb16-ae09c920ae4d)
 
 ##  Tech Stack
 
@@ -44,7 +47,7 @@ A full-stack authentication and user management application built with **React**
 
 ---
 
-##  Project Structure
+## 📁 Project Structure
 
 ```
 purple-merit/
@@ -103,7 +106,7 @@ purple-merit/
 
 ---
 
-##  Prerequisites
+## 📋 Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -114,7 +117,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-##  Installation & Setup
+## 🚀 Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -148,7 +151,7 @@ Then initialize the database schema from `backend/src/db/schema.sql`.
 
 ---
 
-## Environment Variables
+## 🔐 Environment Variables
 
 Create a `.env` file in the `backend` directory with the following variables:
 
@@ -176,7 +179,7 @@ VITE_API_BASE_URL=http://localhost:5000
 
 ---
 
-##  Running the Application
+## ▶️ Running the Application
 
 ### Backend
 
