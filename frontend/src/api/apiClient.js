@@ -41,4 +41,14 @@ export const authAPI = {
   logout: () => apiClient.post('/auth/logout'),
 }
 
+export const userAPI = {
+  getAllUsers: (page = 1, limit = 10) =>
+    apiClient.get('/users', { params: { page, limit } }),
+  updateUserStatus: (id, status) =>
+    apiClient.patch(`/users/${id}/status`, { status }),
+  updateProfile: (data) => apiClient.put('/users/profile', data),
+  changePassword: (data) => apiClient.put('/users/password', data),
+}
+
+
 export default apiClient
